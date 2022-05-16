@@ -1,41 +1,63 @@
-var mousePosition;
-var offset = [0,0];
-var div;
-var isDown = false;
+var dragItem = document.querySelector("#item");
+var container = document.querySelector("#container");
 
-div = document.createElement("div");
-div.style.position = "absolute";
-div.style.left = "40%";
-div.style.top = "40%";
-div.style.width = "6%";
-div.style.height = "10%";
-div.style.background = "#004949";
-div.style.color = "blue";
+var active = false;
+var currentX;
+var currentY;
+var initialX;
+var initialY;
+var xOffset = 0;
+var yOffset = 0;
 
-document.body.appendChild(div);
+container.addEventListener("touchstart", dragStart, false);
+container.addEventListener("touchend", dragEnd, false);
+container.addEventListener("touchmove", drag, false);
 
-div.addEventListener('mousedown', function(e) {
-    isDown = true;
-    offset = [
-        div.offsetLeft - e.clientX,
-        div.offsetTop - e.clientY
-    ];
-}, true);
+container.addEventListener("mousedown", dragStart, false);
+container.addEventListener("mouseup", dragEnd, false);
+container.addEventListener("mousemove", drag, false);
 
-document.addEventListener('mouseup', function() {
-    isDown = false;
-}, true);
+function dragStart(e) {
+  if (e.type === "touchstart") {
+    initialX = e.touches[0].clientX - xOffset;
+    initialY = e.touches[0].clientY - yOffset;
+  } else {
+    initialX = e.clientX - xOffset;
+    initialY = e.clientY - yOffset;
+  }
 
-document.addEventListener('mousemove', function(event) {
-    event.preventDefault();
-    if (isDown) {
-        mousePosition = {
-    
-            x : event.clientX,
-            y : event.clientY
-    
-        };
-        div.style.left = (mousePosition.x + offset[0]) + 'px';
-        div.style.top  = (mousePosition.y + offset[1]) + 'px';
+  if (e.target === dragItem) {
+    active = true;
+  }
+}
+
+function dragEnd(e) {
+  initialX = currentX;
+  initialY = currentY;
+
+  active = false;
+}
+
+function drag(e) {
+  if (active) {
+  
+    e.preventDefault();
+  
+    if (e.type === "touchmove") {
+      currentX = e.touches[0].clientX - initialX;
+      currentY = e.touches[0].clientY - initialY;
+    } else {
+      currentX = e.clientX - initialX;
+      currentY = e.clientY - initialY;
     }
-}, true);
+
+    xOffset = currentX;
+    yOffset = currentY;
+
+    setTranslate(currentX, currentY, dragItem);
+  }
+}
+
+function setTranslate(xPos, yPos, el) {
+  el.style.transform = "translate3d(" + xPos + "px, " + yPos + "px, 0)";
+}
