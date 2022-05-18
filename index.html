@@ -28,6 +28,8 @@
 <body id="container">
   <style>
 
+    
+
     html {
       background-color: #008080;
     }
@@ -106,29 +108,31 @@
       color: white;
     }
 
-    
-    #hellowindow {
-      position: absolute;
-      top: 40%;
-      left: 60%;
-      transform: translate(-50%, -50%);
-      z-index: 2;
-    }
 
     .welcomestatement {
       font-size: 0.8rem;
     }
 
     .folderIcon {
-      padding-bottom: 1.4rem;
+      width: 2.3rem;
+      color: white;
     }
 
-    .a2b2Icon {
-      padding-bottom: 1.4rem;
+    .atvIcon a{
+      color: white;
+    }
+
+    .atvIcon a{
+      color: white;
+      left: 70%;
     }
 
     #item {
-      left: 85%;
+      position: absolute;
+      top: 40%;
+      left: 60%;
+      transform: translate(-50%, -50%);
+      z-index: 2;
       touch-action: none;
       user-select: none;
     }
@@ -143,7 +147,7 @@
     .atsign {
       position: absolute;
       top: 85%;
-      left: 50%;
+      left: 85%;
       transform: translate(-50%, -50%);
       z-index: 2;
     }
@@ -155,31 +159,47 @@
       user-select: none;
     }
 
+    .icons a {
+      color: #f1f1f1;
+    }
+
     </style>
     </head>
     <body>
 
     <!-- Icon(Fixed Div) -->
     <div class="icons">
-      <a href="#"><img src="folder.png" class="folderIcon"></a><br>
-      <a href="https://open.spotify.com/artist/5O3oZeVgM98weu0NlwTMuP"><img src="cd.png" class="folderIcon"></a><br>
-      <a href="#"><img src="notepad.png" class="folderIcon"></a><br>
-      <a href="https://thomascavalcante.com"><img src="world.png" class="folderIcon"></a><br>
-      <a href="https://www.youtube.com/channel/UCU2hNAVpmdPuFH1RLJMSzqw/videos"><img src="cam.png" class="folderIcon"></a><br>
-      <a href="#"><img src="atv.png" class="folderIcon" id="A2B2"></a><br>
-      <a href="https://www.a2b2.org"><img src="a2b2icon.png" class="folderIcon" id="A2B2"></a>
+      <a href="#"><img src="folder.png" class="folderIcon">
+        <p>Folder</p>
+      </a><br>
+      <a href="https://open.spotify.com/artist/5O3oZeVgM98weu0NlwTMuP"><img src="cd.png" class="folderIcon">
+        <p>Spotify</p>
+      </a><br>
+      <a href="#"><img src="notepad.png" class="folderIcon">
+        <p>Notepad</p>
+      </a><br>
+      <a href="https://thomascavalcante.com"><img src="world.png" class="folderIcon">
+        <p>Visualizer</p>
+      </a><br>
+      <a href="https://www.youtube.com/channel/UCU2hNAVpmdPuFH1RLJMSzqw/videos"><img src="cam.png" class="folderIcon">
+        <p>YouTube</p>
+      </a><br>
+      <a href="https://www.a2b2.org"><img src="a2b2icon.png" class="folderIcon">
+        <p>a2b2.org</p>
+      </a>
     </div>
 
     <div>
       <div>
         <img src="titties.gif" class="atsign" id="tits">
-        <img src="undercon.gif" class="atsign" id="item">
+        <img src="undercon.gif" class="atsign">
+        </a><br>
       </div>
     </div>
 
     <!-- Start Bar(Fixed Footer) -->
     <div class="footer">
-      <div class="window" id="startbar">
+      <div class="window">
         <div class="window-body">
           <!-- Start Menu Pop-up -->
           <div class="dropdown">
@@ -188,9 +208,10 @@
               Start
             </button>
             <div class="dropdown-content">
-            <a href="index2.html">Settings</a>
-            <a href="#">Help</a>
-            <a href="#">Shut Down...</a>
+              <a href="#">Settings</a>
+              <a href="#">Help</a>
+              <a href="#">Shut Down...</a>
+              <a href="index2.html">Close menu</a>
             </div>
           </div>
         </div>
@@ -198,7 +219,7 @@
     </div>
 
     <!-- Gretting Window(Centered) -->
-    <center><div class="window" id="hellowindow" style="width: 300px">
+    <center><div class="window" id="item" style="width: 300px">
       <div class="title-bar">
         <div class="title-bar-text">Welcome New User!</div>
         <div class="title-bar-controls">
