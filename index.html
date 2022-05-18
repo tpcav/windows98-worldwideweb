@@ -109,18 +109,45 @@
       padding-bottom: 1.4rem;
     }
 
+    #item {
+      touch-action: none;
+      user-select: none;
+    }
+    #item:active {
+      
+    }
+    #item:hover {
+      cursor: pointer;
+      border-width: 20px;
+    }
+
+    .atsign {
+      position: absolute;
+      top: 85%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 2;
+    }
+
     </style>
     </head>
     <body>
-    
+
     <!-- Icon(Fixed Div) -->
     <div class="icons">
       <a href="index.html"><img src="folder.png" class="folderIcon"></a><br>
-      <a href="#"><img src="cd.png" class="folderIcon"></a><br>
+      <a href="https://open.spotify.com/artist/5O3oZeVgM98weu0NlwTMuP"><img src="cd.png" class="folderIcon"></a><br>
       <a href="#"><img src="notepad.png" class="folderIcon"></a><br>
-      <a href="#"><img src="world.png" class="folderIcon"></a><br>
+      <a href="https://thomascavalcante.com"><img src="world.png" class="folderIcon"></a><br>
       <a href="https://www.youtube.com/channel/UCU2hNAVpmdPuFH1RLJMSzqw/videos"><img src="cam.png" class="folderIcon"></a><br>
+      <a href="#"><img src="atv.png" class="folderIcon" id="A2B2"></a><br>
       <a href="https://www.a2b2.org"><img src="a2b2icon.png" class="folderIcon" id="A2B2"></a>
+    </div>
+
+    <div id="container">
+      <div>
+        <img src="atsign.gif" class="atsign" id="item">
+      </div>
     </div>
 
     <!-- Start Bar(Fixed Footer) -->
@@ -156,14 +183,87 @@
       <div class="window-body">
         <p class="welcomestatement">
           <h3> Recent News:</h3>
-          <video width="300" height="200" autoplay="autoplay" loop="true" playsinline>
+          
+          <video 
+            width="300"
+            height="200"
+            autoplay="autoplay"
+            loop="true"
+            playsinline
+          >
             <source src="news.mp4" type="video/mp4" />
           </video>
+
           <h4> A2B2 Records signs ABBATIA.</h4>
         </p>
       </div>
     </div></center>
 
+    <script>
+      var dragItem = document.querySelector("#item");
+      var container = document.querySelector("#container");
+  
+      var active = false;
+      var currentX;
+      var currentY;
+      var initialX;
+      var initialY;
+      var xOffset = 0;
+      var yOffset = 0;
+  
+      container.addEventListener("touchstart", dragStart, false);
+      container.addEventListener("touchend", dragEnd, false);
+      container.addEventListener("touchmove", drag, false);
+  
+      container.addEventListener("mousedown", dragStart, false);
+      container.addEventListener("mouseup", dragEnd, false);
+      container.addEventListener("mousemove", drag, false);
+  
+      function dragStart(e) {
+        if (e.type === "touchstart") {
+          initialX = e.touches[0].clientX - xOffset;
+          initialY = e.touches[0].clientY - yOffset;
+        } else {
+          initialX = e.clientX - xOffset;
+          initialY = e.clientY - yOffset;
+        }
+  
+        if (e.target === dragItem) {
+          active = true;
+        }
+      }
+  
+      function dragEnd(e) {
+        initialX = currentX;
+        initialY = currentY;
+  
+        active = false;
+      }
+  
+      function drag(e) {
+        if (active) {
+        
+          e.preventDefault();
+        
+          if (e.type === "touchmove") {
+            currentX = e.touches[0].clientX - initialX;
+            currentY = e.touches[0].clientY - initialY;
+          } else {
+            currentX = e.clientX - initialX;
+            currentY = e.clientY - initialY;
+          }
+  
+          xOffset = currentX;
+          yOffset = currentY;
+  
+          setTranslate(currentX, currentY, dragItem);
+        }
+      }
+  
+      function setTranslate(xPos, yPos, el) {
+        el.style.transform = "translate3d(" + xPos + "px, " + yPos + "px, 0)";
+      }
+    </script>
 
 </body>
 </html>
