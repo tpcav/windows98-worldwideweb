@@ -1,5 +1,17 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans&family=Koulen&display=swap');
+
 html {
   height: 100vh;
+}
+
+header {
+  font-family: ;
+  color: white;
+  padding-top: 10rem;
+  text-align: center;
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-family: 'Koulen', cursive;
+  font-size: 3rem;
 }
 
 body {
