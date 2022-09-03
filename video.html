@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Abbatia | EPK</title>
+    <link rel="stylesheet" href="https://unpkg.com/98.css">
+
+    <style>
+
+        html {
+            color: white;
+            background-image: url(th_background.jpg);
+            width: 100%;
+            background-color: black;
+        }
+        
+        h1 {
+            font-size: 30pt;
+            font-family: 'Times New Roman', Times, serif;
+            color: white;
+            margin-top: 120px;
+        }
+
+        h2 {
+            font-size: 16pt;
+        }
+
+        p {
+            font-size: 12pt;
+        }
+
+        .outer_div{
+            height: 100%;
+            overflow:auto;
+            width: 100%;
+        }
+
+        .left {
+            position: fixed;
+            float: left;
+            height:100%;
+            width: 25%;
+        }
+
+        .right {
+            position: fixed;
+            float: right;
+            height:100%;
+            width: 25%;
+            right: -20px;
+        }
+
+        .center {
+            float: left;
+            width:50%;
+            position:relative;
+            left:25%;
+            height: 200%;
+        }
+
+        
+        #imageID {
+            width: 100%;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="outer_div">
+
+        <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
+          <div class="left">
+            <img src="vgroup.png" width="90%">
+            <img src="rockets.png" width="90%">
+            <img src="wideroom.png" width="90%">
+          </div>
+        </div>
+        
+        <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+          <div class="center">
+            <center>
+                <video id="imageID" autoplay>
+                    <source src="video.mov" type="video/mp4">
+                </video>
+            </center>
+          <div>
+            
+          </div>
+          </div>
+
+        </div>
+
+        <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
+          <div class="right">
+            <img src="bluebeam.png" width="90%">
+            <img src="zarro.png" width="90%">
+            <img src="vsitting.png" width="90%">
+            <img src="mall.png" width="90%">
+          </div>
+        </div>
+
+        </div>
+
+</body>
+</html>
